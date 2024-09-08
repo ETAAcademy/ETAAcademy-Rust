@@ -7,9 +7,7 @@ use std::fs;
 pub trait Handler {
     fn handle(req:&HttpRequest) -> HttpResponse;
     fn load_file(file_name: &str) -> Option<String>{
-        //CARGO_MANIFEST_DIR crate 根目录
         let default_path = format!("{}/public", env!("CARGO_MANIFEST_DIR"));
-        //PUBLIC_PATH package根目录
         let public_path = env::var("PUBLIC_PATH").unwrap_or(default_path);
         let full_path = format!("{}/{}", public_path, file_name);
         let contents = fs::read_to_string(full_path);
@@ -36,7 +34,6 @@ impl Handler for PageNotFoundHandler {
 impl Handler for StaticPageHandler {
     fn handle(req:&HttpRequest) -> HttpResponse {
         let http::httprequest::Resource::Path(s) = &req.resource;
-        //localhost:300/health/api
         let route: Vec<&str> = s.split("/").collect();
         match route[1] {
             "" => HttpResponse::new("200", None, Self::load_file("index.html")),
@@ -73,7 +70,6 @@ impl WebServiceHandler{
 impl Handler for WebServiceHandler{
     fn handle(req:&HttpRequest) -> HttpResponse {
         let http::httprequest::Resource::Path(s) = &req.resource;
-        //localhost:3000/api/shipping/orders
         let route:Vec<&str> = s.split("/").collect();
         match route[2] {
             "shipping" if route.len() > 2 && route[3] == "orders" => {

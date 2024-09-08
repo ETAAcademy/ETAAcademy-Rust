@@ -11,7 +11,6 @@ impl Router{
                 httprequest::Resource::Path(s) => {
                     let route: Vec<&str> = s.split("/").collect();
                     match route[1] {
-                        //localhost:3000/api
                         "api" => {
                             let resp : HttpResponse = WebServiceHandler::handle(&req);
                             let _ = resp.send_response(stream);

@@ -70,7 +70,7 @@ Start by defining the `Method` and `Version` enums and implementing their traits
 
 <details><summary>CODE</summary>
 
-```python
+```rust
 use std::collections::HashMap;
 
 #[derive(Debug, PartialEq)]
@@ -148,7 +148,6 @@ impl From<String> for HttpRequest {
         }
     }
 }
-///GET /greeting HTTP/1.1
 fn process_req_line(s: &str) -> (Method, Resource, Version) {
     let mut words = s.split_whitespace();
     let method = words.next().unwrap();
@@ -160,8 +159,7 @@ fn process_req_line(s: &str) -> (Method, Resource, Version) {
         version.into(),
     )
 }
-///HOST: localhost
-///Accept: */*
+
 fn process_header_line(s: &str) -> (String, String){
     let mut header_items = s.split(":");
     let mut key = String::from("");
@@ -197,7 +195,7 @@ mod tests {
         header_expected.insert("Accept".into(), " */*".into());
         header_expected.insert("User-Agent".into(), " Mobile/Iphone".into());
         let req:HttpRequest = s.into();
-        
+
         assert_eq!(Method::GET, req.method);
         assert_eq!(Version::V1_1, req.version);
         assert_eq!(Resource::Path("/greeting".to_string()), req.resource);
@@ -216,7 +214,7 @@ An HTTP response consists of a status line (HTTP version, status code, and statu
 
 <details><summary>CODE</summary>
 
-```python
+```rust
 
 use std::collections::HashMap;
 use std::io::{Result, Write};
@@ -402,7 +400,7 @@ mod tests{
 
 <details><summary>CODE</summary>
 
-```python
+```rust
 use super::router::Router;
 use http::httprequest::HttpRequest;
 use std::io::prelude::*;
@@ -450,7 +448,7 @@ impl<'a> Server<'a> {
 
 <details><summary>CODE</summary>
 
-```python
+```rust
 
 use crate::handler::{WebServiceHandler, StaticPageHandler};
 use super::handler::{Handler, PageNotFoundHandler};
@@ -465,7 +463,6 @@ impl Router{
                 httprequest::Resource::Path(s) => {
                     let route: Vec<&str> = s.split("/").collect();
                     match route[1] {
-                        //localhost:3000/api
                         "api" => {
                             let resp : HttpResponse = WebServiceHandler::handle(&req);
                             let _ = resp.send_response(stream);
@@ -521,7 +518,7 @@ impl Router{
 
 <details><summary>CODE</summary>
 
-```python
+```rust
 
 use http::{httprequest::HttpRequest, httpresponse::HttpResponse};
 use serde::{Deserialize, Serialize};
@@ -532,9 +529,7 @@ use std::fs;
 pub trait Handler {
     fn handle(req:&HttpRequest) -> HttpResponse;
     fn load_file(file_name: &str) -> Option<String>{
-        //CARGO_MANIFEST_DIR crate 根目录
         let default_path = format!("{}/public", env!("CARGO_MANIFEST_DIR"));
-        //PUBLIC_PATH package根目录
         let public_path = env::var("PUBLIC_PATH").unwrap_or(default_path);
         let full_path = format!("{}/{}", public_path, file_name);
         let contents = fs::read_to_string(full_path);
@@ -561,7 +556,6 @@ impl Handler for PageNotFoundHandler {
 impl Handler for StaticPageHandler {
     fn handle(req:&HttpRequest) -> HttpResponse {
         let http::httprequest::Resource::Path(s) = &req.resource;
-        //localhost:300/health/api
         let route: Vec<&str> = s.split("/").collect();
         match route[1] {
             "" => HttpResponse::new("200", None, Self::load_file("index.html")),
@@ -598,7 +592,6 @@ impl WebServiceHandler{
 impl Handler for WebServiceHandler{
     fn handle(req:&HttpRequest) -> HttpResponse {
         let http::httprequest::Resource::Path(s) = &req.resource;
-        //localhost:3000/api/shipping/orders
         let route:Vec<&str> = s.split("/").collect();
         match route[2] {
             "shipping" if route.len() > 2 && route[3] == "orders" => {

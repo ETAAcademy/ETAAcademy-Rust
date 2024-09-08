@@ -75,7 +75,7 @@ impl From<String> for HttpRequest {
         }
     }
 }
-///GET /greeting HTTP/1.1
+
 fn process_req_line(s: &str) -> (Method, Resource, Version) {
     let mut words = s.split_whitespace();
     let method = words.next().unwrap();
@@ -87,8 +87,7 @@ fn process_req_line(s: &str) -> (Method, Resource, Version) {
         version.into(),
     )
 }
-///HOST: localhost
-///Accept: */*
+
 fn process_header_line(s: &str) -> (String, String){
     let mut header_items = s.split(":");
     let mut key = String::from("");
