@@ -2030,8 +2030,6 @@ struct EmptyIterator {
 let it = EmptyIterator { it: bestiter::iter() };
 ```
 
-</details>
-
 If the dependency `itercrate` updates from version 1.0 to 2.0, your users will face compilation issues because the compiler sees the two versions as different types.
 
 #### Auto Traits
