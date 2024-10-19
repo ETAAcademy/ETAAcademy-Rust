@@ -2058,3 +2058,5 @@ Designing robust Rust APIs requires balancing performance, usability, and mainta
 <div  align="center"> 
 <img src="images/07_interface.gif" width="100%" />
 </div>
+
+<video src="images/07_interface.mp4"></video>
