@@ -1,4 +1,4 @@
-# ETAAcademy-Rust: 05. Async & Future
+# ETAAcademy-Rust: 06. Type & Pointer
 
 <table>
   <tr>
@@ -19,7 +19,7 @@
   </tr>
 </table>
 
-[Github](https:github.com/ETAAcademy)｜[Twitter](https:twitter.com/ETAAcademy)｜[ETA-ZK-Meme](https:github.com/ETAAcademy/ETAAcademy-ZK-Meme)
+[Github](https:github.com/ETAAcademy)｜[Twitter](https:twitter.com/ETAAcademy)｜[ETA-ZK-Rust](https://github.com/ETAAcademy/ETAAcademy-Rust)
 
 Authors: [Eta](https:twitter.com/pwhattie), looking forward to your joining
 

@@ -21,6 +21,8 @@
 
 ## 简介
 
+[Github](https:github.com/ETAAcademy)｜[Twitter](https:twitter.com/ETAAcademy)｜[ETA-ZK-Rust](https://github.com/ETAAcademy/ETAAcademy-Rust)
+
 本文作者: [Eta](https://twitter.com/pwhattie)
 
 本文主要介绍了 Rust 测试的函数、命令和种类, 干货满满。
