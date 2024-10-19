@@ -2030,6 +2030,8 @@ struct EmptyIterator {
 let it = EmptyIterator { it: bestiter::iter() };
 ```
 
+</details>
+
 If the dependency `itercrate` updates from version 1.0 to 2.0, your users will face compilation issues because the compiler sees the two versions as different types.
 
 #### Auto Traits
@@ -2055,6 +2057,6 @@ Testing for trait implementations can help detect these issues early.
 
 Designing robust Rust APIs requires balancing performance, usability, and maintainability. Start with flexible, generic interfaces to encourage broad usage, tightening constraints only when needed. Manage binary size by using generics carefully and leveraging dynamic dispatch to minimize duplication. Resource management, particularly with destructors, demands careful handling to balance safety and flexibility. Clear documentation, combined with an expressive type system, ensures APIs are predictable, self-explanatory, and hard to misuse. By adhering to these principles, developers can create user-friendly, efficient, and maintainable interfaces that enhance the developer experience.
 
-<div  align="center"> 
-<img src="images/07_Interface.png" width="100%" />
+<div align="center"> 
+<img src="images/07_interface.gif" width="100%" />
 </div>
