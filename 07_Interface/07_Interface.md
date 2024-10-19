@@ -2056,5 +2056,5 @@ Testing for trait implementations can help detect these issues early.
 Designing robust Rust APIs requires balancing performance, usability, and maintainability. Start with flexible, generic interfaces to encourage broad usage, tightening constraints only when needed. Manage binary size by using generics carefully and leveraging dynamic dispatch to minimize duplication. Resource management, particularly with destructors, demands careful handling to balance safety and flexibility. Clear documentation, combined with an expressive type system, ensures APIs are predictable, self-explanatory, and hard to misuse. By adhering to these principles, developers can create user-friendly, efficient, and maintainable interfaces that enhance the developer experience.
 
 <div  align="center"> 
-<img src="https://github.com/ETAAcademy/ETAAcademy-Rust/blob/main/07_Interface/images/07_interface.svg" width="100%" />
+<img src="images/07_interface.gif" width="100%" />
 </div>
