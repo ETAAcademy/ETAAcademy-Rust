@@ -6,7 +6,7 @@
 
 > 我们最近在学习 Rust，巩固一下细节，也写一个“ETAAcademy Rust 极简入门”，供小白们使用（编程大佬可以另找教程）。
 
-**第 1 讲 Rust 测试**：[Code](./01_Rust_Tests/adder/src/lib.rs) | [教程](./01_Rust_Tests/rust_tests.md) | 本文作者: [Eta](https://twitter.com/pwhattie)
+**第 1 讲 Rust 测试**：[Code](./01_Rust_Tests/adder/src/lib.rs) | [教程](./01_Rust_Tests/rust_tests.md) | 本文作者: [Evta](https://twitter.com/pwhattie)
 
 ## Reference
 

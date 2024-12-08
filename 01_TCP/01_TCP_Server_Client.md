@@ -21,7 +21,7 @@
 
 [Github](https:github.com/ETAAcademy)｜[Twitter](https:twitter.com/ETAAcademy)｜[ETA-ZK-Rust](https://github.com/ETAAcademy/ETAAcademy-Rust)
 
-Authors: [Eta](https:twitter.com/pwhattie), looking forward to your joining
+Authors: [Evta](https:twitter.com/pwhattie), looking forward to your joining
 
 # Building a Simple TCP Server and Client in Rust
 
